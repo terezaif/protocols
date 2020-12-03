@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "protocols"
+version = "0.1.0"
+description = ""
+authors = ["Tereza Iofciu <tereza@neuefische.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.19.4"
+pandas = "^1.1.4"
+seaborn = "^0.11.0"
+GitPython = "^3.1.11"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pre-commit = "^2.9.2"
+jupyter = "^1.0.0"
+black = "^20.8b1"
+flake8 = "^3.8.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
