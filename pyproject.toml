@@ -19,6 +19,8 @@ black = "^20.8b1"
 flake8 = "^3.8.4"
 Markdown = "^3.3.3"
 bs4 = "^0.0.1"
+nltk = "^3.5"
+Faker = "^5.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
