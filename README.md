@@ -23,3 +23,5 @@ python protocols/import_data.py    #this extracts the data from the locally clon
 You need to change the relative path to the repo you want to parse, the code only read the markdown files, gets the first code committer per file, the data of the commit and extracts the text from html, extracted from markdown.
 
 The new dataset is saved in a **data** folder.
+
+#todo: one user changed their github handle.. and appears as 2 people.. 
