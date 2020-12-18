@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 
 data/secret.txt
+data/secret_names.txt
 
 poetry.lock
 

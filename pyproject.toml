@@ -21,6 +21,7 @@ Markdown = "^3.3.3"
 bs4 = "^0.0.1"
 nltk = "^3.5"
 Faker = "^5.0.0"
+spacy = "^2.3.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

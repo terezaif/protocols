@@ -4,7 +4,10 @@ import pandas as pd
 import markdown
 from bs4 import BeautifulSoup
 from faker import Faker
+import json
+import re
 
+SECRET_NAMES = "data/secret_names.txt"
 PATH = "../hh-2020-ds4-daily-review/"
 PATHPATTERN = "../hh-2020-ds4-daily-review/*.md"
 SPLIT_AFTER = "review/"
@@ -42,12 +45,17 @@ def get_text(filename: str, path: str = PATH) -> str:
     reading the file, extracting the html, and then the text
     """
     file = path + "/" + filename
+    secretnames = json.load(open(SECRET_NAMES))
+    regex = re.compile("(%s)" % "|".join(map(re.escape, secretnames.keys())))
+
     with open(file) as fp:
         md = fp.read()
         html = markdown.markdown(md)
         soup = BeautifulSoup(html, features="html.parser")
 
-    return soup.get_text().replace("\n", " ")
+    text = soup.get_text().replace("\n", " ")
+    newtext = regex.sub(lambda mo: secretnames[mo.string[mo.start() : mo.end()]], text)
+    return newtext
 
 
 def get_gitcommits(path: str = PATH) -> list:
@@ -64,13 +72,17 @@ def get_gitcommits(path: str = PATH) -> list:
         fake_names[author] = fake_name
         print(filename, author, fake_name)
         author_dict = {}
-        author_dict["Filename"] = filename
-        author_dict["Author"] = fake_name
-        author_dict["DateCommit"] = timestamp
+        author_dict["filename"] = filename
+        author_dict["author"] = fake_name
+        author_dict["date_commit"] = timestamp
         author_dict["text"] = file_text
         file_history.append(author_dict)
 
     return file_history, fake_names
+
+
+def get_secret_names(path: str = SECRET_NAMES) -> dict:
+    return json.load(open(path))
 
 
 if __name__ == "__main__":
