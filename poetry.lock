@@ -18,6 +18,45 @@ toolz = "*"
 dev = ["black", "docutils", "ipython", "flake8", "pytest", "sphinx", "m2r", "vega-datasets", "recommonmark"]
 
 [[package]]
+name = "altair-data-server"
+version = "0.4.1"
+description = "A background data server for Altair charts."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+altair = "*"
+portpicker = "*"
+tornado = "*"
+
+[[package]]
+name = "altair-saver"
+version = "0.5.0"
+description = "Altair extension for saving charts to various formats."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+altair = "*"
+altair-data-server = ">=0.4.0"
+altair-viewer = "*"
+selenium = "*"
+
+[[package]]
+name = "altair-viewer"
+version = "0.3.0"
+description = "Viewer for Altair and Vega-Lite visualizations."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+altair = "*"
+altair-data-server = ">=0.4.0"
+
+[[package]]
 name = "appdirs"
 version = "1.4.4"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -874,6 +913,14 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 dev = ["pre-commit", "tox"]
 
 [[package]]
+name = "portpicker"
+version = "1.3.1"
+description = "A library to choose unique available network ports."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pre-commit"
 version = "2.9.2"
 description = "A framework for managing and maintaining multi-language pre-commit hooks."
@@ -1144,6 +1191,17 @@ matplotlib = ">=2.2"
 numpy = ">=1.15"
 pandas = ">=0.23"
 scipy = ">=1.0"
+
+[[package]]
+name = "selenium"
+version = "3.141.0"
+description = "Python bindings for Selenium"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+urllib3 = "*"
 
 [[package]]
 name = "send2trash"
@@ -1430,12 +1488,24 @@ notebook = ">=4.4.1"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "9c4d346e6c457060d7bfd20c739424dff21c7aa941f4a7a7c26faf8b5ca012e9"
+content-hash = "94b3f861fb43341677afda1ff2885122a27b4170315d07b31f3edf62ea99f8cc"
 
 [metadata.files]
 altair = [
     {file = "altair-4.1.0-py3-none-any.whl", hash = "sha256:7748841a1bea8354173d1140bef6d3b58bea21d201f562528e9599ea384feb7f"},
     {file = "altair-4.1.0.tar.gz", hash = "sha256:3edd30d4f4bb0a37278b72578e7e60bc72045a8e6704179e2f4738e35bc12931"},
+]
+altair-data-server = [
+    {file = "altair_data_server-0.4.1-py3-none-any.whl", hash = "sha256:bd1414d69dbfec22c804b34210491d7313e5edc7736504dfb8c405ded0e2015b"},
+    {file = "altair_data_server-0.4.1.tar.gz", hash = "sha256:b39205a48ab2678020fc58739cb973845879ed169cb5addddc9dcbf5a69aeb2b"},
+]
+altair-saver = [
+    {file = "altair_saver-0.5.0-py3-none-any.whl", hash = "sha256:e3b1049e565dd104aa8d5d3ec681a40479f9d070a3094f4918b64b8329308fab"},
+    {file = "altair_saver-0.5.0.tar.gz", hash = "sha256:c098bcf6868e3ba11db108904dc3b8515b54505b89bca5f69527115487b88795"},
+]
+altair-viewer = [
+    {file = "altair_viewer-0.3.0-py3-none-any.whl", hash = "sha256:5e290c472b70f14b5c943d464b96ca78c7131bb5f515cdb8b031e0d0722267e5"},
+    {file = "altair_viewer-0.3.0.tar.gz", hash = "sha256:2964dbde6b7c5be723ddd9d509db4de67c9fb4c765d4e864087dc931c4524439"},
 ]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
@@ -1972,6 +2042,9 @@ pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
 ]
+portpicker = [
+    {file = "portpicker-1.3.1.tar.gz", hash = "sha256:d2cdc776873635ed421315c4d22e63280042456bbfa07397817e687b142b9667"},
+]
 pre-commit = [
     {file = "pre_commit-2.9.2-py2.py3-none-any.whl", hash = "sha256:949b13efb7467ae27e2c8f9e83434dacf2682595124d8902554a4e18351e5781"},
     {file = "pre_commit-2.9.2.tar.gz", hash = "sha256:e31c04bc23741194a7c0b983fe512801e151a0638c6001c49f2bd034f8a664a1"},
@@ -2199,6 +2272,10 @@ scipy = [
 seaborn = [
     {file = "seaborn-0.11.0-py3-none-any.whl", hash = "sha256:62439a38482decdb263a8339f54ecb9823995ad8716abc830e91ca0753201e70"},
     {file = "seaborn-0.11.0.tar.gz", hash = "sha256:390f8437b14f5ce845062f2865ad51656464c306d09bb97d7764c6cba1dd607c"},
+]
+selenium = [
+    {file = "selenium-3.141.0-py2.py3-none-any.whl", hash = "sha256:2d7131d7bc5a5b99a2d9b04aaf2612c411b03b8ca1b1ee8d3de5845a9be2cb3c"},
+    {file = "selenium-3.141.0.tar.gz", hash = "sha256:deaf32b60ad91a4611b98d8002757f29e6f2c2d5fcaf202e1c9ad06d6772300d"},
 ]
 send2trash = [
     {file = "Send2Trash-1.5.0-py3-none-any.whl", hash = "sha256:f1691922577b6fa12821234aeb57599d887c4900b9ca537948d2dac34aea888b"},

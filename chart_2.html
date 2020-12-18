@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeWidth": 1}, "encoding": {"color": {"type": "nominal", "field": "author"}, "size": {"type": "quantitative", "field": "sentence_count", "legend": {"title": "sentence count"}, "scale": {"range": [0, 3000]}}, "tooltip": [{"type": "nominal", "field": "author", "title": "Author"}, {"type": "quantitative", "field": "median_word_len", "title": "Word len"}, {"type": "quantitative", "field": "sentence_count", "title": "Sentence count"}], "x": {"type": "quantitative", "axis": {"grid": false}, "field": "author_day", "scale": {"domain": [0, 4]}}, "y": {"type": "quantitative", "axis": {"grid": true}, "field": "median_word_len", "scale": {"domain": [4, 8]}}}, "height": 500, "width": 500}], "data": {"name": "data-1f11f1afbe81fb9ac19e8d03aefefe4c"}, "title": "neuefische DS-4 protocols 2020", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-1f11f1afbe81fb9ac19e8d03aefefe4c": [{"author_day": 1, "author": "Erin Robinson", "sentence_count": 64, "median_word_len": 6}, {"author_day": 1, "author": "Bonnie Brown", "sentence_count": 69, "median_word_len": 6}, {"author_day": 1, "author": "Timothy Stevens", "sentence_count": 66, "median_word_len": 6}, {"author_day": 1, "author": "Larry Sanders", "sentence_count": 108, "median_word_len": 6}, {"author_day": 1, "author": "Zachary Brooks", "sentence_count": 56, "median_word_len": 6}, {"author_day": 1, "author": "William Rodriguez", "sentence_count": 18, "median_word_len": 7}, {"author_day": 1, "author": "Amy Williams", "sentence_count": 104, "median_word_len": 6}, {"author_day": 1, "author": "Bonnie Williams", "sentence_count": 135, "median_word_len": 6}, {"author_day": 1, "author": "Nicole Johnson", "sentence_count": 80, "median_word_len": 6}, {"author_day": 1, "author": "Thomas Hansen", "sentence_count": 85, "median_word_len": 6}, {"author_day": 1, "author": "Jennifer Montgomery", "sentence_count": 62, "median_word_len": 7}, {"author_day": 1, "author": "Jacob Phillips", "sentence_count": 36, "median_word_len": 6}, {"author_day": 1, "author": "Charles Christensen", "sentence_count": 37, "median_word_len": 6}, {"author_day": 2, "author": "Bonnie Brown", "sentence_count": 70, "median_word_len": 6}, {"author_day": 2, "author": "Erin Robinson", "sentence_count": 52, "median_word_len": 6}, {"author_day": 2, "author": "Timothy Stevens", "sentence_count": 68, "median_word_len": 7}, {"author_day": 2, "author": "Larry Sanders", "sentence_count": 114, "median_word_len": 6}, {"author_day": 2, "author": "Zachary Brooks", "sentence_count": 68, "median_word_len": 6}, {"author_day": 2, "author": "Amy Williams", "sentence_count": 51, "median_word_len": 6}, {"author_day": 2, "author": "William Rodriguez", "sentence_count": 72, "median_word_len": 6}, {"author_day": 2, "author": "Bonnie Williams", "sentence_count": 50, "median_word_len": 6}, {"author_day": 2, "author": "Nicole Johnson", "sentence_count": 137, "median_word_len": 6}, {"author_day": 2, "author": "Thomas Hansen", "sentence_count": 27, "median_word_len": 7}, {"author_day": 2, "author": "Charles Christensen", "sentence_count": 26, "median_word_len": 5}, {"author_day": 2, "author": "Jacob Phillips", "sentence_count": 19, "median_word_len": 6}, {"author_day": 2, "author": "Jennifer Montgomery", "sentence_count": 60, "median_word_len": 6}, {"author_day": 3, "author": "Erin Robinson", "sentence_count": 25, "median_word_len": 6}, {"author_day": 3, "author": "Bonnie Brown", "sentence_count": 43, "median_word_len": 6}, {"author_day": 3, "author": "Timothy Stevens", "sentence_count": 40, "median_word_len": 6}, {"author_day": 3, "author": "Larry Sanders", "sentence_count": 36, "median_word_len": 7}, {"author_day": 3, "author": "Zachary Brooks", "sentence_count": 82, "median_word_len": 7}, {"author_day": 3, "author": "William Rodriguez", "sentence_count": 50, "median_word_len": 7}, {"author_day": 3, "author": "Amy Williams", "sentence_count": 14, "median_word_len": 7}, {"author_day": 3, "author": "Bonnie Williams", "sentence_count": 16, "median_word_len": 6}, {"author_day": 3, "author": "Nicole Johnson", "sentence_count": 110, "median_word_len": 6}, {"author_day": 3, "author": "Jacob Phillips", "sentence_count": 98, "median_word_len": 6}, {"author_day": 3, "author": "Charles Christensen", "sentence_count": 63, "median_word_len": 7}, {"author_day": 3, "author": "Thomas Hansen", "sentence_count": 47, "median_word_len": 6}, {"author_day": 3, "author": "Jennifer Montgomery", "sentence_count": 83, "median_word_len": 6}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
