@@ -130,6 +130,7 @@ dmypy.json
 
 data/secret.txt
 data/secret_names.txt
+protocols/secret*
 
 poetry.lock
 
